@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости — Портфолио</title>
+    <link rel="stylesheet" href="../style/styles.css">
+    <meta name="description" content="Новости и обновления портфолио: релизы, статьи, выступления.">
+</head>
+<body>
+    <div class="site">
+        <header class="header">
+            <div class="container header__navbar">
+                <nav class="nav" aria-label="Главное меню">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                    <a class="nav__link nav__link--active" href="news.html">Новости</a>
+                    <a class="nav__link" href="practices.html">Практики</a>
+                    <a class="nav__link" href="goods.html">Услуги</a>
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </nav>
+                <button class="theme-toggle" aria-label="Переключить тему" id="themeToggle">
+                    <svg class="theme-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <section class="section">
+                <div class="container">
+                    <h1 class="section-title">Новости</h1>
+                    <div class="grid grid--cols-3">
+                        <article class="card card--hoverable news-card" data-news-id="1">
+                            <strong class="card__title">Вышла статья про оптимизацию React</strong>
+                            <div class="muted">Октябрь 2025</div>
+                            <p class="card__content">Разбираю приёмы мемоизации, профилирование, а также Server Components.</p>
+                        </article>
+                        <article class="card card--hoverable news-card" data-news-id="2">
+                            <strong class="card__title">Открыл исходники pet‑проекта</strong>
+                            <div class="muted">Сентябрь 2025</div>
+                            <p class="card__content">Публикую репозиторий с монорепой Turborepo: веб‑клиент, API и worker.</p>
+                        </article>
+                        <article class="card card--hoverable news-card" data-news-id="3">
+                            <strong class="card__title">Выступление на митапе</strong>
+                            <div class="muted">Август 2025</div>
+                            <p class="card__content">Доклад про практики тестирования: Contract tests, Vitest и Playwright.</p>
+                        </article>
+                    </div>
+
+                    <div class="modal" id="newsModal">
+                        <div class="modal__content">
+                            <button class="modal__close" aria-label="Закрыть">&times;</button>
+                            <h2 class="modal__title" id="modalTitle"></h2>
+                            <div class="modal__date" id="modalDate"></div>
+                            <div class="modal__body" id="modalBody"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer__inner">
+                <div class="socials">
+                    <a class="socials__link" href="https://github.com/kkapanny" aria-label="GitHub">GitHub</a>
+                    <a class="socials__link" href="https://t.me/kkapanny" aria-label="Telegram">Telegram</a>
+                    <a class="socials__link" href="contacts.html">Связаться</a>
+                </div>
+                <div class="muted">© Капустинская Анна, 2024–2025</div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="../script/theme-toggle.js"></script>
+    <script>
+        const newsData = {
+            1: {
+                title: "Вышла статья про оптимизацию React",
+                date: "Октябрь 2025",
+                content: `
+                    <p>В своей новой статье я подробно разбираю современные приёмы оптимизации React-приложений. Рассматриваю различные техники мемоизации компонентов и вычислений, которые помогают избежать лишних ререндеров.</p>
+                    <p>Особое внимание уделяю профилированию производительности с помощью React DevTools Profiler и Chrome DevTools. Показываю, как находить узкие места в приложении и эффективно их устранять.</p>
+                    <p>Также рассказываю о Server Components и их влиянии на производительность. Объясняю, когда стоит использовать серверные компоненты, а когда лучше остаться на клиентской стороне.</p>
+                    <p>Статья включает практические примеры кода и реальные кейсы из моих проектов. Все примеры протестированы и готовы к использованию в продакшене.</p>
+                `
+            },
+            2: {
+                title: "Открыл исходники pet‑проекта",
+                date: "Сентябрь 2025",
+                content: `
+                    <p>Рад объявить о публикации исходного кода моего pet-проекта на GitHub. Это полнофункциональное приложение, построенное с использованием современного стека технологий.</p>
+                    <p>Проект использует монорепозиторий на базе Turborepo, что позволяет эффективно управлять несколькими пакетами и приложениями в одном репозитории. Структура включает веб-клиент на React, REST API на Node.js и фоновые воркеры для обработки задач.</p>
+                    <p>В репозитории вы найдёте:</p>
+                    <ul>
+                        <li>Полную документацию по архитектуре</li>
+                        <li>Инструкции по запуску и развёртыванию</li>
+                        <li>Примеры использования API</li>
+                        <li>Тесты для всех компонентов</li>
+                    </ul>
+                    <p>Проект демонстрирует лучшие практики разработки: модульную архитектуру, типизацию TypeScript, автоматизированное тестирование и CI/CD пайплайны.</p>
+                `
+            },
+            3: {
+                title: "Выступление на митапе",
+                date: "Август 2025",
+                content: `
+                    <p>Выступил на локальном митапе с докладом о современных практиках тестирования в JavaScript-экосистеме. Доклад вызвал живой интерес у аудитории.</p>
+                    <p>Основные темы, которые я затронул:</p>
+                    <ul>
+                        <li><strong>Contract Testing</strong> — как обеспечить совместимость между микросервисами и избежать поломок при изменениях API</li>
+                        <li><strong>Vitest</strong> — современная альтернатива Jest с поддержкой ESM и отличной производительностью</li>
+                        <li><strong>Playwright</strong> — мощный инструмент для end-to-end тестирования с поддержкой нескольких браузеров</li>
+                    </ul>
+                    <p>Поделился практическим опытом внедрения этих инструментов в реальных проектах. Показал, как правильно структурировать тесты, чтобы они были поддерживаемыми и надёжными.</p>
+                    <p>После доклада провёл Q&A сессию, где ответил на вопросы участников о специфике тестирования в различных сценариях. Материалы доклада доступны в моём GitHub репозитории.</p>
+                `
+            }
+        };
+
+        (function() {
+            const modal = document.getElementById('newsModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDate = document.getElementById('modalDate');
+            const modalBody = document.getElementById('modalBody');
+            const closeBtn = modal.querySelector('.modal__close');
+            const newsCards = document.querySelectorAll('.news-card');
+
+            function openModal(newsId) {
+                const news = newsData[newsId];
+                if (!news) return;
+
+                modalTitle.textContent = news.title;
+                modalDate.textContent = news.date;
+                modalBody.innerHTML = news.content;
+                modal.classList.add('modal--open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('modal--open');
+                document.body.style.overflow = '';
+            }
+
+            // Открытие модалки при клике
+            newsCards.forEach(card => {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', function(e) {
+                    const newsId = parseInt(this.getAttribute('data-news-id'));
+                    openModal(newsId);
+                });
+            });
+
+            // Закрытие модалки
+            closeBtn.addEventListener('click', closeModal);
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Закрытие по Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('modal--open')) {
+                    closeModal();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практики — Портфолио</title>
+    <link rel="stylesheet" href="../style/styles.css">
+    <meta name="description" content="Портфолио работ: веб‑приложения, библиотеки, эксперименты.">
+</head>
+<body>
+    <div class="site">
+        <header class="header">
+            <div class="container header__navbar">
+                <nav class="nav" aria-label="Главное меню">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                    <a class="nav__link" href="news.html">Новости</a>
+                    <a class="nav__link nav__link--active" href="practices.html">Практики</a>
+                    <a class="nav__link" href="goods.html">Услуги</a>
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </nav>
+                <button class="theme-toggle" aria-label="Переключить тему" id="themeToggle">
+                    <svg class="theme-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <section class="section">
+                <div class="container">
+                    <h1 class="section-title">Мои работы</h1>
+                    <div class="grid grid--cols-3">
+                        <article class="card card--hoverable project practice-card" data-practice-id="1">
+                            <img class="project__thumb" src="../dashboard_analitic.png" alt="Dashboard аналитики">
+                            <h4 class="project__title">Dashboard аналитики</h4>
+                            <span class="muted">Next.js, Tailwind, Chart.js</span>
+                        </article>
+                        <article class="card card--hoverable project practice-card" data-practice-id="2">
+                            <img class="project__thumb" src="../rest:graphql.jpg" alt="REST/GraphQL API">
+                            <h4 class="project__title">REST/GraphQL API</h4>
+                            <span class="muted">Node.js, Fastify, GraphQL Yoga</span>
+                        </article>
+                        <article class="card card--hoverable project practice-card" data-practice-id="3">
+                            <img class="project__thumb" src="../servis_ocheredei.jpg" alt="Сервис очередей">
+                            <h4 class="project__title">Сервис очередей</h4>
+                            <span class="muted">BullMQ, Redis, TypeScript</span>
+                        </article>
+                        <article class="card card--hoverable project practice-card" data-practice-id="4">
+                            <div class="project__thumb" aria-hidden="true"></div>
+                            <h4 class="project__title">UI библиотека компонентов</h4>
+                            <span class="muted">React, Storybook</span>
+                        </article>
+                        <article class="card card--hoverable project practice-card" data-practice-id="5">
+                            <img class="project__thumb" src="../websocket.jpg" alt="Веб‑чат с WebSocket">
+                            <h4 class="project__title">Веб‑чат с WebSocket</h4>
+                            <span class="muted">Node.js, WS, Postgres</span>
+                        </article>
+                        <article class="card card--hoverable project practice-card" data-practice-id="6">
+                            <img class="project__thumb" src="../mobile_pwa.png" alt="Мобильная PWA">
+                            <h4 class="project__title">Мобильная PWA</h4>
+                            <span class="muted">React, Service Worker</span>
+                        </article>
+                    </div>
+                    
+                    <div class="modal" id="practiceModal">
+                        <div class="modal__content">
+                            <button class="modal__close" aria-label="Закрыть">&times;</button>
+                            <h2 class="modal__title" id="practiceModalTitle"></h2>
+                            <div class="modal__date" id="practiceModalStack"></div>
+                            <div class="modal__body" id="practiceModalBody"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer__inner">
+                <div class="socials">
+                    <a class="socials__link" href="https://github.com/kkapanny" aria-label="GitHub">GitHub</a>
+                    <a class="socials__link" href="https://t.me/kkapanny" aria-label="Telegram">Telegram</a>
+                    <a class="socials__link" href="contacts.html">Связаться</a>
+                </div>
+                <div class="muted">© Капустинская Анна, 2024–2025</div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="../script/theme-toggle.js"></script>
+    <script>
+        const practiceData = {
+            1: {
+                title: "Dashboard аналитики",
+                stack: "Next.js, Tailwind, Chart.js",
+                image: "../dashboard_analitic.png",
+                content: `
+                    <p>Современный дашборд для визуализации аналитических данных с интерактивными графиками и таблицами. Проект разработан с использованием Next.js для серверного рендеринга и оптимизации производительности.</p>
+                    <p>Основные возможности включают фильтрацию данных в реальном времени, экспорт отчетов в различных форматах, настраиваемые виджеты и адаптивный дизайн для всех устройств.</p>
+                    <p>Использованы современные библиотеки визуализации Chart.js для создания интерактивных графиков. Tailwind CSS обеспечивает быструю разработку и консистентный дизайн.</p>
+                    <p>Проект включает систему аутентификации, ролевую модель доступа и интеграцию с различными источниками данных через REST API.</p>
+                `
+            },
+            2: {
+                title: "REST/GraphQL API",
+                stack: "Node.js, Fastify, GraphQL Yoga",
+                image: "../rest:graphql.jpg",
+                content: `
+                    <p>Гибридное API решение, поддерживающее как REST, так и GraphQL протоколы. Разработано на базе Node.js с использованием Fastify для высокой производительности.</p>
+                    <p>GraphQL Yoga обеспечивает гибкость запросов и оптимизацию передачи данных. Реализована система кэширования, rate limiting и валидация запросов.</p>
+                    <p>API включает полную документацию через Swagger для REST endpoints и GraphQL Playground для интерактивного тестирования GraphQL запросов.</p>
+                    <p>Реализована система мониторинга, логирования и обработки ошибок. Проект масштабируется горизонтально и поддерживает микросервисную архитектуру.</p>
+                `
+            },
+            3: {
+                title: "Сервис очередей",
+                stack: "BullMQ, Redis, TypeScript",
+                image: "../servis_ocheredei.jpg",
+                content: `
+                    <p>Надежный сервис для управления фоновыми задачами и очередями на базе BullMQ и Redis. Обеспечивает отложенное выполнение задач, приоритизацию и обработку ошибок.</p>
+                    <p>Реализованы различные типы очередей: приоритетные, отложенные, повторяющиеся задачи. Система автоматически обрабатывает сбои и повторяет неудачные задачи.</p>
+                    <p>TypeScript обеспечивает типобезопасность и улучшает developer experience. Реализован мониторинг очередей через веб-интерфейс.</p>
+                    <p>Сервис интегрирован с основным приложением через события и поддерживает горизонтальное масштабирование для обработки больших объемов задач.</p>
+                `
+            },
+            4: {
+                title: "UI библиотека компонентов",
+                stack: "React, Storybook",
+                image: "../work1.jpg",
+                content: `
+                    <p>Переиспользуемая библиотека UI компонентов, разработанная с использованием React и документированная в Storybook. Библиотека включает более 50 готовых компонентов.</p>
+                    <p>Все компоненты полностью типизированы с TypeScript, поддерживают темизацию и доступность (a11y). Реализована система дизайн-токенов для консистентности.</p>
+                    <p>Storybook обеспечивает изолированную разработку компонентов, автоматическое тестирование и документацию с примерами использования.</p>
+                    <p>Библиотека опубликована в npm и используется в нескольких проектах. Регулярно обновляется с учетом обратной связи и новых требований.</p>
+                `
+            },
+            5: {
+                title: "Веб‑чат с WebSocket",
+                stack: "Node.js, WS, Postgres",
+                image: "../websocket.jpg",
+                content: `
+                    <p>Реал-тайм веб-приложение для обмена сообщениями с использованием WebSocket соединений. Обеспечивает мгновенную доставку сообщений без обновления страницы.</p>
+                    <p>Реализованы функции групповых чатов, приватных сообщений, уведомлений и статусов пользователей. Сообщения сохраняются в PostgreSQL для истории переписки.</p>
+                    <p>Система поддерживает файловые вложения, эмодзи, форматирование текста и поиск по истории сообщений. Реализована модерация контента.</p>
+                    <p>Приложение оптимизировано для работы с большим количеством одновременных соединений. Используется горизонтальное масштабирование через Redis для синхронизации между серверами.</p>
+                `
+            },
+            6: {
+                title: "Мобильная PWA",
+                stack: "React, Service Worker",
+                image: "../mobile_pwa.png",
+                content: `
+                    <p>Прогрессивное веб-приложение (PWA) с полной поддержкой офлайн режима. Разработано на React с использованием Service Worker для кэширования ресурсов.</p>
+                    <p>Приложение работает как нативное мобильное приложение: устанавливается на домашний экран, работает офлайн, отправляет push-уведомления.</p>
+                    <p>Реализована стратегия кэширования "Cache First" для статических ресурсов и "Network First" для динамического контента. Обеспечивается синхронизация данных при восстановлении соединения.</p>
+                    <p>PWA оптимизировано для производительности: быстрая загрузка, плавная анимация, минимальное потребление батареи. Протестировано на различных мобильных устройствах.</p>
+                `
+            }
+        };
+
+        (function() {
+            const modal = document.getElementById('practiceModal');
+            const modalTitle = document.getElementById('practiceModalTitle');
+            const modalStack = document.getElementById('practiceModalStack');
+            const modalBody = document.getElementById('practiceModalBody');
+            const closeBtn = modal.querySelector('.modal__close');
+            const practiceCards = document.querySelectorAll('.practice-card');
+
+            function openModal(practiceId) {
+                const practice = practiceData[practiceId];
+                if (!practice) return;
+
+                modalTitle.textContent = practice.title;
+                modalStack.textContent = practice.stack;
+                modalBody.innerHTML = `<img class="modal__image" src="${practice.image}" alt="${practice.title}">${practice.content}`;
+                modal.classList.add('modal--open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('modal--open');
+                document.body.style.overflow = '';
+            }
+
+            // Открытие модалки при клике
+            practiceCards.forEach(card => {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', function(e) {
+                    const practiceId = parseInt(this.getAttribute('data-practice-id'));
+                    openModal(practiceId);
+                });
+            });
+
+            // Закрытие модалки
+            closeBtn.addEventListener('click', closeModal);
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Закрытие по Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('modal--open')) {
+                    closeModal();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
+
+

@@ -1,1 +1,115 @@
-test page
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио — Фуллстек разработчик</title>
+    <link rel="stylesheet" href="style/styles.css">
+    <meta name="description" content="Портфолио фуллстек разработчика: проекты, опыт, навыки, контакты.">
+</head>
+<body>
+    <div class="site">
+        <header class="header">
+            <div class="container header__navbar">
+                <nav class="nav" aria-label="Главное меню">
+                    <a class="nav__link nav__link--active" href="index.html">Главная</a>
+                    <a class="nav__link" href="pages/news.html">Новости</a>
+                    <a class="nav__link" href="pages/practices.html">Практики</a>
+                    <a class="nav__link" href="pages/goods.html">Услуги</a>
+                    <a class="nav__link" href="pages/contacts.html">Контакты</a>
+                </nav>
+                <button class="theme-toggle" aria-label="Переключить тему" id="themeToggle">
+                    <svg class="theme-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container hero__grid">
+                    <div>
+                        <h1 class="display">PORTFOLIO</h1>
+                        <p class="tagline">Full-stack engineer • JS, HTML, CSS, PostgreSQL</p>
+                    </div>
+                    <div class="profile">
+                        <img class="profile__avatar" src="photo.jpg" alt="Фото разработчика">
+                        <div class="profile__content">
+                            <div>
+                                <h2 class="profile__title">Капустинская Анна — фуллстек разработчик</h2>
+                                <div class="chips">
+                                    <span class="chip">HTML/CSS</span>
+                                    <span class="chip">JS</span>
+                                    <span class="chip">C++</span>
+                                    <span class="chip">PostgreSQL</span>
+                                </div>
+                            </div>
+                            <div class="about">
+                                <h3 class="section-title about__title">Обо мне</h3>
+                                <div class="card">
+                                    <p class="card__content">Создаю масштабируемые веб‑приложения от идеи до продакшена. Люблю чистый код, надёжные архитектуры и понятные интерфейсы. Открыт к коммерческим проектам и интересным коллаборациям.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <h3 class="section-title">Галерея работ</h3>
+                    <div class="grid grid--cols-3">
+                        <article class="card card--no-padding card--no-border project">
+                            <img class="project__thumb" src="work1.jpg" alt="Работа 1">
+                        </article>
+                        <article class="card card--no-padding card--no-border project">
+                            <img class="project__thumb" src="work2.jpg" alt="Работа 2">
+                        </article>
+                        <article class="card card--no-padding card--no-border project">
+                            <img class="project__thumb" src="work3.jpg" alt="Работа 3">
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <h3 class="section-title">Опыт</h3>
+                    <div class="grid grid--cols-3">
+                        <div class="card card--experience">
+                            <strong class="card__title">Фуллстек разработчик</strong>
+                            <div class="muted">2024 — наст. время</div>
+                            <p class="card__content">Проектирование API, разработка фронтенда и DevOps‑процессы.</p>
+                        </div>
+                        <div class="card card--experience">
+                            <strong class="card__title">Frontend разработчик</strong>
+                            <div class="muted">2022 — 2024</div>
+                            <p class="card__content">React/TypeScript, дизайн‑системы, производительность интерфейсов.</p>
+                        </div>
+                        <div class="card card--experience">
+                            <strong class="card__title">Стажёр (Backend)</strong>
+                            <div class="muted">2021 — 2022</div>
+                            <p class="card__content">Node.js, базы данных, тестирование и CI.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer__inner">
+                <div class="socials">
+                    <a class="socials__link" href="https://github.com/kkapanny" aria-label="GitHub">GitHub</a>
+                    <a class="socials__link" href="https://t.me/kkapanny" aria-label="Telegram">Telegram</a>
+                    <a class="socials__link" href="pages/contacts.html">Связаться</a>
+                </div>
+                <div class="muted">© Капустинская Анна, 2024–2025</div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="script/theme-toggle.js"></script>
+</body>
+</html>

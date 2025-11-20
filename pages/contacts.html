@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — Портфолио</title>
+    <link rel="stylesheet" href="../style/styles.css">
+    <meta name="description" content="Контакты для связи: email, соцсети, форма обратной связи.">
+</head>
+<body>
+    <div class="site">
+        <header class="header">
+            <div class="container header__navbar">
+                <nav class="nav" aria-label="Главное меню">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                    <a class="nav__link" href="news.html">Новости</a>
+                    <a class="nav__link" href="practices.html">Практики</a>
+                    <a class="nav__link" href="goods.html">Услуги</a>
+                    <a class="nav__link nav__link--active" href="contacts.html">Контакты</a>
+                </nav>
+                <button class="theme-toggle" aria-label="Переключить тему" id="themeToggle">
+                    <svg class="theme-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <section class="section">
+                <div class="container">
+                    <h1 class="section-title">Связаться со мной</h1>
+                    <div class="grid grid--cols-3">
+                        <div class="card">
+                            <strong class="card__title">Соцсети</strong>
+                            <p class="card__content"><a href="https://github.com/kkapanny" aria-label="GitHub">GitHub</a><br>
+                               <a href="https://t.me/kkapanny" aria-label="Telegram">Telegram</a></p>
+                            <div class="muted">Открыт к предложениям и коллаборациям</div>
+                        </div>
+                        <div class="card">
+                            <strong class="card__title">Email</strong>
+                            <p class="card__content"><a href="mailto:kkapanny@gmail.com">kkapanny@gmail.com</a></p>
+                            <div class="muted">Отвечаю в течение 1–2 рабочих дней</div>
+                        </div>
+                        <div class="card">
+                            <strong class="card__title">Форма обратной связи</strong>
+                            <form id="contact-form">
+                                <label class="sr-only" for="name">Имя</label>
+                                <input id="name" name="name" placeholder="Ваше имя" autocomplete="name" required>
+                                <label class="sr-only" for="phone">Телефон</label>
+                                <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel" required>
+                                <label class="sr-only" for="email">Email</label>
+                                <input id="email" name="email" type="email" placeholder="Email" autocomplete="email" required>
+                                <label class="sr-only" for="subject">Тема обращения</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="" disabled selected>Тема обращения</option>
+                                    <option value="question">Задать вопрос</option>
+                                    <option value="pricing">Узнать цену</option>
+                                    <option value="other">Другое</option>
+                                </select>
+                                <label class="sr-only" for="msg">Сообщение</label>
+                                <textarea id="msg" name="message" rows="4" placeholder="Опишите задачу или вопрос..."></textarea>
+                                <button class="button" type="submit">Отправить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer__inner">
+                <div class="socials">
+                    <a class="socials__link" href="https://github.com/kkapanny" aria-label="GitHub">GitHub</a>
+                    <a class="socials__link" href="https://t.me/kkapanny" aria-label="Telegram">Telegram</a>
+                    <a class="socials__link" href="contacts.html">Связаться</a>
+                </div>
+                <div class="muted">© Капустинская Анна, 2024–2025</div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="../script/theme-toggle.js"></script>
+    <script>
+        (() => {
+            const form = document.getElementById('contact-form');
+            if (!form) {
+                return;
+            }
+
+            const phoneInput = form.querySelector('#phone');
+            const emailInput = form.querySelector('#email');
+
+            const normalizePhoneDigits = (value) => {
+                let digits = value.replace(/\D/g, '');
+                if (!digits) {
+                    return '';
+                }
+                if (digits.startsWith('8')) {
+                    digits = '7' + digits.slice(1);
+                }
+                if (digits.startsWith('9') && digits.length <= 10) {
+                    digits = '7' + digits;
+                }
+                if (!digits.startsWith('7')) {
+                    digits = '7' + digits;
+                }
+                return digits.slice(0, 11);
+            };
+
+            const formatPhone = (value) => {
+                const digits = normalizePhoneDigits(value);
+                if (!digits) {
+                    return '';
+                }
+                const rest = digits.slice(1);
+                let formatted = '+7';
+                if (rest.length) {
+                    formatted += ' (' + rest.slice(0, 3);
+                }
+                if (rest.length >= 3) {
+                    formatted += ')';
+                }
+                if (rest.length > 3) {
+                    formatted += ' ' + rest.slice(3, 6);
+                }
+                if (rest.length > 6) {
+                    formatted += '-' + rest.slice(6, 8);
+                }
+                if (rest.length > 8) {
+                    formatted += '-' + rest.slice(8, 10);
+                }
+                return formatted;
+            };
+
+            const setDefaultPhoneOnFocus = () => {
+                if (!phoneInput.value) {
+                    phoneInput.value = '+7 ';
+                }
+            };
+
+            if (phoneInput) {
+                phoneInput.addEventListener('focus', setDefaultPhoneOnFocus);
+                phoneInput.addEventListener('input', () => {
+                    const formatted = formatPhone(phoneInput.value);
+                    phoneInput.value = formatted;
+                    phoneInput.setCustomValidity('');
+                });
+                phoneInput.addEventListener('blur', () => {
+                    const digits = normalizePhoneDigits(phoneInput.value);
+                    if (!digits) {
+                        phoneInput.value = '';
+                    }
+                });
+            }
+
+            const validatePhone = () => {
+                const digitsRaw = normalizePhoneDigits(phoneInput.value);
+                if (!digitsRaw || digitsRaw.length !== 11) {
+                    phoneInput.setCustomValidity('Введите номер полностью в формате +7 (XXX) XXX-XX-XX.');
+                    phoneInput.reportValidity();
+                    return false;
+                }
+                if (!digitsRaw.startsWith('7')) {
+                    phoneInput.setCustomValidity('Номер телефона должен начинаться с +7.');
+                    phoneInput.reportValidity();
+                    return false;
+                }
+                phoneInput.setCustomValidity('');
+                return true;
+            };
+
+            const basicEmailValidation = () => {
+                const email = emailInput.value.trim();
+                if (!email) {
+                    emailInput.setCustomValidity('Введите email.');
+                    emailInput.reportValidity();
+                    return false;
+                }
+                const isLatin = /^[A-Za-z0-9@._+-]+$/.test(email);
+                const hasAt = email.includes('@');
+                if (!isLatin || !hasAt) {
+                    emailInput.setCustomValidity('Email должен содержать символ @ и состоять из латинских символов.');
+                    emailInput.reportValidity();
+                    return false;
+                }
+                emailInput.setCustomValidity('');
+                return true;
+            };
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                const phoneValid = validatePhone();
+                if (!phoneValid) {
+                    return;
+                }
+
+                const emailValid = basicEmailValidation();
+                if (!emailValid) {
+                    return;
+                }
+
+                alert('Спасибо! Я свяжусь с вами.');
+                form.reset();
+                if (phoneInput) {
+                    phoneInput.value = '';
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
