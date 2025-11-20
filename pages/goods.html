@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги — Портфолио</title>
+    <link rel="stylesheet" href="../style/styles.css">
+    <meta name="description" content="Услуги фуллстек разработчика: разработка, аудит, консультации.">
+</head>
+<body>
+    <div class="site">
+        <header class="header">
+            <div class="container header__navbar">
+                <nav class="nav" aria-label="Главное меню">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                    <a class="nav__link" href="news.html">Новости</a>
+                    <a class="nav__link" href="practices.html">Практики</a>
+                    <a class="nav__link nav__link--active" href="goods.html">Услуги</a>
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </nav>
+                <button class="theme-toggle" aria-label="Переключить тему" id="themeToggle">
+                    <svg class="theme-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <section class="section">
+                <div class="container">
+                    <h1 class="section-title">Услуги</h1>
+                    <div class="grid grid--cols-3">
+                        <!-- обычная карточка -->
+                        <div class="card card--hoverable">
+                            <strong class="card__title">Разработка под ключ</strong>
+                            <p class="card__content">Архитектура, фронтенд, бэкенд, деплой и мониторинг.</p>
+                            <div class="muted">Стек: React, Node.js, PostgreSQL, Docker</div>
+                        </div>
+                        
+                        <!-- карточка со скидкой -->
+                        <div class="card card--hoverable card--discount">
+                            <strong class="card__title">Аудит и оптимизация</strong>
+                            <p class="card__content">Производительность, DX, безопасность, расходы на инфраструктуру.</p>
+                            <div class="muted">Lighthouse, профилирование, косты облака</div>
+                        </div>
+                        
+                        <!-- выбранная карточка -->
+                        <div class="card card--hoverable card--selected">
+                            <strong class="card__title">Консультации и менторинг</strong>
+                            <p class="card__content">Архитектурные решения, код‑ревью, план развития команды.</p>
+                            <div class="muted">Онлайн‑сессии 60–90 минут</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer__inner">
+                <div class="socials">
+                    <a class="socials__link" href="https://github.com/kkapanny" aria-label="GitHub">GitHub</a>
+                    <a class="socials__link" href="https://t.me/kkapanny" aria-label="Telegram">Telegram</a>
+                    <a class="socials__link" href="contacts.html">Связаться</a>
+                </div>
+                <div class="muted">© Капустинская Анна, 2024–2025</div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="../script/theme-toggle.js"></script>
+</body>
+</html>
+
+
