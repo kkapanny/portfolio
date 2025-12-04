@@ -2,16 +2,17 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Портфолио — Фуллстек разработчик</title>
     <link rel="stylesheet" href="style/styles.css">
     <meta name="description" content="Портфолио фуллстек разработчика: проекты, опыт, навыки, контакты.">
 </head>
 <body>
-    <div class="site">
+    <div class="page">
+        <a class="skip-link" href="#main">Перейти к основному содержимому</a>
         <header class="header">
             <div class="container header__navbar">
-                <nav class="nav" aria-label="Главное меню">
+                <nav class="nav" aria-label="Основная навигация">
                     <a class="nav__link nav__link--active" href="index.html">Главная</a>
                     <a class="nav__link" href="pages/news.html">Новости</a>
                     <a class="nav__link" href="pages/practices.html">Практики</a>
@@ -27,7 +28,7 @@
             </div>
         </header>
 
-        <main>
+        <main id="main" class="main">
             <section class="hero">
                 <div class="container hero__grid">
                     <div>
@@ -35,7 +36,14 @@
                         <p class="tagline">Full-stack engineer • JS, HTML, CSS, PostgreSQL</p>
                     </div>
                     <div class="profile">
-                        <img class="profile__avatar" src="photo.jpg" alt="Фото разработчика">
+                        <figure class="hero__image">
+                            <picture>
+                                <img class="profile__avatar hero__photo"
+                                     src="photo.jpg" alt="Фото разработчика"
+                                     width="400" height="400"
+                                     fetchpriority="high">
+                            </picture>
+                        </figure>
                         <div class="profile__content">
                             <div>
                                 <h2 class="profile__title">Капустинская Анна — фуллстек разработчик</h2>
@@ -57,7 +65,7 @@
                 </div>
             </section>
 
-            <section class="section">
+            <section class="section projects-area">
                 <div class="container">
                     <h3 class="section-title">Галерея работ</h3>
                     <div class="grid grid--cols-3">
@@ -74,7 +82,7 @@
                 </div>
             </section>
 
-            <section class="section">
+            <section class="section projects-area">
                 <div class="container">
                     <h3 class="section-title">Опыт</h3>
                     <div class="grid grid--cols-3">
